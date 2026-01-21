@@ -5,7 +5,7 @@ const HeroSection = () => {
   return (
     <section className="relative w-full overflow-hidden">
       {/* ================= HERO ================= */}
-      <div className="relative h-[100vh] sm:h-[95vh] md:h-[90vh] w-full">
+      <div className="relative h-[80vh] sm:h-[90vh] md:h-[90vh] w-full">
         {/* Background Image */}
         <Image
           src="/images/hero.jpg"
@@ -26,7 +26,7 @@ const HeroSection = () => {
           </div>
 
           {/* Title */}
-          <h1 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-3 text-center leading-tight">
+          <h1 className="text-4xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-3 text-center leading-tight">
             Welcome to Kinsley
           </h1>
 
@@ -35,15 +35,16 @@ const HeroSection = () => {
             Deliniti nostrum laboriosam praesentium quasi quam voluptate.
           </p>
 
-          {/* ================= SEARCH BOX ================= */}
+          {/* ================= SEARCH BOX (HIDDEN ON MOBILE) ================= */}
           <div
             className="
+              hidden md:flex
               bg-white text-gray-700
               rounded-2xl
               shadow-2xl
               px-3 sm:px-4 md:px-6 lg:px-8
               py-4
-              flex flex-col md:flex-row
+              flex-col md:flex-row
               gap-3 sm:gap-4
               w-full max-w-sm sm:max-w-lg md:max-w-4xl lg:max-w-6xl
             "
@@ -103,32 +104,20 @@ const HeroSection = () => {
       </div>
 
       {/* ================= FEATURES ================= */}
-     {/* ================= FEATURES ================= */}
-<div className="relative bg-[#f6fbfb] pb-44 md:pb-10">
-  {/* FLOATING CARDS – 20% LOWER */}
-  <div
-    className="
-      absolute
-      left-0
-      right-0
-      -top-12
-      md:-top-16
-      lg:-top-20
-      z-20
-    "
-  >
-    <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 px-4">
-      <Feature icon={<FiTruck />} title="Airport transfer" />
-      <Feature icon={<FiCoffee />} title="All inclusive" />
-      <Feature icon={<FiWind />} title="Air-conditioned" />
-      <Feature icon={<FiShield />} title="Under protection" />
-    </div>
-  </div>
+      <div className="relative bg-[#f6fbfb] pb-44 md:pb-5">
+        {/* FLOATING CARDS */}
+        <div className="absolute left-0 right-0 -top-12 md:-top-16 lg:-top-20 z-20">
+          <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 px-4">
+            <Feature icon={<FiTruck />} title="Airport transfer" />
+            <Feature icon={<FiCoffee />} title="All inclusive" />
+            <Feature icon={<FiWind />} title="Air-conditioned" />
+            <Feature icon={<FiShield />} title="Under protection" />
+          </div>
+        </div>
 
-  {/* SPACE AFTER OVERLAP */}
-  <div className="h-28 md:h-36"></div>
-</div>
-
+        {/* SPACE AFTER OVERLAP */}
+        <div className="h-28 md:h-36"></div>
+      </div>
     </section>
   );
 };

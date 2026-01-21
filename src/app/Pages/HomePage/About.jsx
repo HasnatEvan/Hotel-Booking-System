@@ -3,19 +3,19 @@ import Link from "next/link";
 
 const About = () => {
   return (
-    <section className="bg-[#f6fbfb] ">
+    <section className="bg-[#f6fbfb]">
       <div className="max-w-6xl mx-auto px-4">
         
         {/* Card Wrapper */}
         <div className="bg-white rounded-3xl shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-2">
           
           {/* Top Left Image */}
-          <div className="relative h-72 md:h-full">
+          <div className="relative h-72 md:h-full overflow-hidden group">
             <Image
               src="/images/about-1.jpg"
               alt="Hotel experience"
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
             />
           </div>
 
@@ -62,12 +62,12 @@ const About = () => {
           </div>
 
           {/* Bottom Right Image */}
-          <div className="relative h-72 md:h-full order-1 md:order-none">
+          <div className="relative h-72 md:h-full overflow-hidden group order-1 md:order-none">
             <Image
               src="/images/about-2.jpg"
               alt="Luxury hotel"
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
             />
           </div>
 

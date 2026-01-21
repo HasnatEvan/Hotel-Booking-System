@@ -80,8 +80,26 @@
 }
 
 /* ===============================
+   NO SCROLLBAR (IMPORTANT)
+================================ */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+/* ===============================
    BASE
 ================================ */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background: #ffffff;
   color: #171717;

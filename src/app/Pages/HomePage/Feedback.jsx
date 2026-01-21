@@ -32,169 +32,121 @@ const reviews = [
 
 export default function Feedback() {
   const [active, setActive] = useState(0);
-  const [direction, setDirection] = useState("right");
 
   const total = reviews.length;
   const prev = (active - 1 + total) % total;
   const next = (active + 1) % total;
 
   return (
-    <section className="bg-[#f4fbfb] py-10 overflow-hidden w-full">
-      {/* ❌ NO max-width */}
-      <div className="px-4 md:px-12 text-center w-full">
+    <section className="bg-[#f4fbfb]  w-full">
+      <div className="max-w-6xl mx-auto px-4 md:px-12 text-center">
 
-        {/* TITLE */}
-        <h2 className="text-2xl md:text-4xl font-bold text-[#2d3954] mb-4">
-          Feedback from our Guests
+        {/* ===== TITLE ===== */}
+        <h2 className="text-3xl md:text-5xl font-bold text-[#2d3954] mb-4">
+          What Our Guests Say
         </h2>
 
-        <p className="max-w-2xl mx-auto text-sm text-[#6b7cff] mb-12 md:mb-24">
-          Consectetur adipisicing elit. Nihil, illum voluptate eveniet ex fugit ea delectus.
+        <p className="max-w-2xl mx-auto text-sm md:text-base text-[#6b7cff] mb-12 md:mb-20 leading-relaxed">
+          Real feedback from our happy guests. Their experiences drive us to offer the best services.
         </p>
 
-        {/* ================= MOBILE SLIDER ================= */}
-        <div className="md:hidden relative w-full">
-
+        {/* ===== MOBILE SLIDER ===== */}
+        <div className="md:hidden relative w-full flex items-center justify-center">
           <button
-            onClick={() => {
-              setDirection("left");
-              setActive(prev);
-            }}
+            onClick={() => setActive(prev)}
             className="absolute left-0 top-1/2 -translate-y-1/2
-            w-10 h-10 rounded-full bg-blue-500 text-white
-            flex items-center justify-center shadow-lg z-10"
+                       w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500
+                       text-white flex items-center justify-center shadow-lg z-10 hover:scale-105 transition"
           >
             <FiArrowLeft />
           </button>
 
-          <div
-            key={active}
-            className={`bg-white p-6 rounded-2xl shadow-xl mx-12
-              ${direction === "right"
-                ? "animate-card-right"
-                : "animate-card-left"}
-            `}
-          >
-            <img
-              src={reviews[active].img}
-              className="w-20 h-20 rounded-full mx-auto mb-4"
-              alt={reviews[active].name}
-            />
-            <h4 className="font-semibold">{reviews[active].name}</h4>
-            <p className="text-xs text-gray-500 mb-4">
-              {reviews[active].country}
-            </p>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              {reviews[active].text}
-            </p>
+          <div className="w-full mx-2">
+            <div className="bg-white p-6 md:p-8 rounded-3xl shadow-lg text-center transition-transform duration-500">
+              <img
+                src={reviews[active].img}
+                className="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-blue-200"
+                alt={reviews[active].name}
+              />
+              <h4 className="font-semibold text-lg md:text-xl">{reviews[active].name}</h4>
+              <p className="text-xs md:text-sm text-gray-500 mb-4">{reviews[active].country}</p>
+              <p className="text-sm md:text-base text-gray-600 leading-relaxed">{reviews[active].text}</p>
+            </div>
           </div>
 
           <button
-            onClick={() => {
-              setDirection("right");
-              setActive(next);
-            }}
+            onClick={() => setActive(next)}
             className="absolute right-0 top-1/2 -translate-y-1/2
-            w-10 h-10 rounded-full bg-blue-500 text-white
-            flex items-center justify-center shadow-lg z-10"
+                       w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500
+                       text-white flex items-center justify-center shadow-lg z-10 hover:scale-105 transition"
           >
             <FiArrowRight />
           </button>
         </div>
 
-        {/* ================= DESKTOP VIEW ================= */}
-        <div className="hidden md:block w-full">
+        {/* ===== DESKTOP & TABLET ===== */}
+        <div className="hidden md:flex flex-col items-center w-full">
 
-          {/* PROFILES */}
-          <div className="relative flex items-center justify-between mb-16 w-full">
+          {/* ===== PROFILES ===== */}
+          <div className="relative flex items-center justify-center mb-16 w-full">
 
-            <div className="opacity-60 text-center">
-              <img
-                src={reviews[prev].img}
-                className="w-20 h-20 rounded-full mx-auto"
-                alt={reviews[prev].name}
-              />
-              <h4 className="mt-4 font-semibold">{reviews[prev].name}</h4>
+            {/* PREVIOUS PROFILE */}
+            <div className="absolute left-0 opacity-50 transform scale-90">
+              <img src={reviews[prev].img} className="w-20 h-20 rounded-full mx-auto border-2 border-gray-200" alt={reviews[prev].name} />
+              <h4 className="mt-2 font-semibold text-sm">{reviews[prev].name}</h4>
               <p className="text-xs text-gray-500">{reviews[prev].country}</p>
             </div>
 
+            {/* ACTIVE PROFILE CENTER */}
+            <div className="z-10 text-center mx-6">
+              <img src={reviews[active].img} className="w-32 h-32 rounded-full mx-auto border-4 border-gradient-to-br from-blue-400 to-indigo-400 p-1 shadow-xl" alt={reviews[active].name} />
+              <h4 className="mt-4 font-bold text-lg md:text-xl">{reviews[active].name}</h4>
+              <p className="text-sm md:text-base text-gray-500">{reviews[active].country}</p>
+            </div>
+
+            {/* NEXT PROFILE */}
+            <div className="absolute right-0 opacity-50 transform scale-90">
+              <img src={reviews[next].img} className="w-20 h-20 rounded-full mx-auto border-2 border-gray-200" alt={reviews[next].name} />
+              <h4 className="mt-2 font-semibold text-sm">{reviews[next].name}</h4>
+              <p className="text-xs text-gray-500">{reviews[next].country}</p>
+            </div>
+
+            {/* ===== ARROWS (MOVE DOWN) ===== */}
             <button
-              onClick={() => {
-                setDirection("left");
-                setActive(prev);
-              }}
-              className="absolute left-[30%] top-1/2 -translate-y-1/2
-              w-12 h-12 rounded-full bg-blue-500 text-white
-              flex items-center justify-center shadow-lg"
+              onClick={() => setActive(prev)}
+              className="absolute left-[-50px] top-[100%] -translate-y-1/2
+                         w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500
+                         text-white flex items-center justify-center shadow-lg hover:scale-110 transition"
             >
               <FiArrowLeft />
             </button>
 
-            <div
-              key={active}
-              className={`text-center ${
-                direction === "right"
-                  ? "animate-profile-right"
-                  : "animate-profile-left"
-              }`}
-            >
-              <img
-                src={reviews[active].img}
-                className="w-24 h-24 rounded-full mx-auto"
-                alt={reviews[active].name}
-              />
-              <h4 className="mt-4 font-semibold">{reviews[active].name}</h4>
-              <p className="text-sm text-gray-500">{reviews[active].country}</p>
-            </div>
-
             <button
-              onClick={() => {
-                setDirection("right");
-                setActive(next);
-              }}
-              className="absolute right-[30%] top-1/2 -translate-y-1/2
-              w-12 h-12 rounded-full bg-blue-500 text-white
-              flex items-center justify-center shadow-lg"
+              onClick={() => setActive(next)}
+              className="absolute right-[-50px] top-[100%] -translate-y-1/2
+                         w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500
+                         text-white flex items-center justify-center shadow-lg hover:scale-110 transition"
             >
               <FiArrowRight />
             </button>
 
-            <div className="opacity-60 text-center">
-              <img
-                src={reviews[next].img}
-                className="w-20 h-20 rounded-full mx-auto"
-                alt={reviews[next].name}
-              />
-              <h4 className="mt-4 font-semibold">{reviews[next].name}</h4>
-              <p className="text-xs text-gray-500">{reviews[next].country}</p>
-            </div>
           </div>
 
-          {/* CARDS */}
-          <div className="grid grid-cols-3 gap-10 w-full">
-
-            <div className="bg-white p-8 rounded-2xl opacity-60">
-              <p className="text-sm">{reviews[prev].text}</p>
+          {/* ===== CARDS ===== */}
+          <div className="grid grid-cols-3 gap-8 w-full">
+            <div className="bg-white p-6 md:p-8 rounded-3xl opacity-60 shadow-sm text-sm md:text-base transition-transform hover:scale-105">
+              {reviews[prev].text}
             </div>
 
-            <div
-              className={`bg-white p-10 rounded-2xl shadow-xl
-                ${direction === "right"
-                  ? "animate-card-right"
-                  : "animate-card-left"}
-              `}
-            >
-              <p className="text-sm leading-relaxed">
-                {reviews[active].text}
-              </p>
+            <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl text-sm md:text-base leading-relaxed transition-transform transform hover:scale-105">
+              {reviews[active].text}
             </div>
 
-            <div className="bg-white p-8 rounded-2xl opacity-60">
-              <p className="text-sm">{reviews[next].text}</p>
+            <div className="bg-white p-6 md:p-8 rounded-3xl opacity-60 shadow-sm text-sm md:text-base transition-transform hover:scale-105">
+              {reviews[next].text}
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );
