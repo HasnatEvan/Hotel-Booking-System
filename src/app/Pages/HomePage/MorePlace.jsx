@@ -26,7 +26,7 @@ export default function MorePlacesSection() {
   };
 
   return (
-    <section className="py-12 sm:py-16 bg-[#f4fbfb]">
+    <section className="py-12 sm:py-16 bg-[#f2fbf9]">
       <div className="max-w-6xl mx-auto px-4">
 
         {/* ===== HEADER ===== */}

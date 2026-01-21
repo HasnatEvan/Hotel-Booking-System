@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const About = () => {
   return (
-    <section className="bg-[#f6fbfb]">
+    <section className="bg-[#f6fbfb] py-2">
       <div className="max-w-6xl mx-auto px-4">
         
         {/* Card Wrapper */}

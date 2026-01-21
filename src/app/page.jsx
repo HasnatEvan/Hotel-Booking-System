@@ -12,8 +12,8 @@ const HomePage = () => {
       <About></About>
       <MorePlace></MorePlace>
       <Section1></Section1>
-      <Feedback></Feedback>
       <Service></Service>
+      <Feedback></Feedback>
     </div>
   );
 };
