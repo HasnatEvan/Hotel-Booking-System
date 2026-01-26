@@ -12,7 +12,7 @@ const About = () => {
           {/* Top Left Image */}
           <div className="relative h-72 md:h-full overflow-hidden group">
             <Image
-              src="/images/about-1.jpg"
+              src="/images/about-t1.jpg"
               alt="Hotel experience"
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-110"

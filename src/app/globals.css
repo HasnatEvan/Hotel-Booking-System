@@ -1,6 +1,24 @@
 @import "tailwindcss";
 
 /* ===============================
+   BASE RESET
+================================ */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #ffffff;
+  color: #171717;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif;
+  overscroll-behavior: contain;
+}
+
+/* ===============================
    GLOBAL ZOOM ANIMATION
 ================================ */
 @keyframes zoomInOut {
@@ -69,41 +87,29 @@
 .animate-card-right {
   animation: cardRight 1.1s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .animate-card-left {
   animation: cardLeft 1.1s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .animate-profile-right {
   animation: profileRight 1.1s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .animate-profile-left {
   animation: profileLeft 1.1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ===============================
-   NO SCROLLBAR (IMPORTANT)
+   NO SCROLLBAR
 ================================ */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-
-/* ===============================
-   BASE
-================================ */
-html,
-body {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  background: #ffffff;
-  color: #171717;
-  overscroll-behavior: contain;
 }
 
 /* ===============================

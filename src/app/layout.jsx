@@ -1,17 +1,8 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import SmoothScroll from "./components/SmoothScroll";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Footer from "./components/Footer";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "Hotel Booking System",
@@ -21,16 +12,25 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-900`}
-      >
+      <body className="antialiased bg-white text-gray-900 font-sans">
         <SmoothScroll>
-          {/* Navbar */}
           <Navbar />
-
-          {/* Page Content */}
           <main>{children}</main>
+          <Footer />
         </SmoothScroll>
+
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+          toastOptions={{
+            duration: 3000,
+            style: {
+              borderRadius: "12px",
+              background: "#1f2937",
+              color: "#fff",
+            },
+          }}
+        />
       </body>
     </html>
   );

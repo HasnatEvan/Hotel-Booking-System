@@ -53,7 +53,7 @@ const Service = () => {
       {/* Cards */}
       <div
         ref={wrapperRef}
-        className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 px-4 sm:px-6 lg:px-8"
+        className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 px-4 "
       >
         {services.map((item, i) => {
           const isOpen = activeIndex === i;
