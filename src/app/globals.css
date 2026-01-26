@@ -6,7 +6,10 @@
 html,
 body {
   width: 100%;
-  overflow-x: hidden;
+  min-height: 100%;
+  overflow-x: hidden;     /* horizontal scroll বন্ধ */
+  overflow-y: auto;       /* vertical scroll allow */
+  -webkit-overflow-scrolling: touch; /* smooth mobile scroll */
 }
 
 body {
@@ -15,8 +18,13 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial,
     "Noto Sans", sans-serif;
-  overscroll-behavior: contain;
 }
+
+/* ❌ REMOVED
+   overscroll-behavior: contain;
+   (এইটাই mobile scroll block করছিল)
+*/
+
 
 /* ===============================
    GLOBAL ZOOM ANIMATION
@@ -36,6 +44,7 @@ body {
 .animate-zoom-in-out {
   animation: zoomInOut 20s ease-in-out infinite;
 }
+
 
 /* ===============================
    FEEDBACK SLIDER ANIMATIONS
@@ -100,8 +109,9 @@ body {
   animation: profileLeft 1.1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+
 /* ===============================
-   NO SCROLLBAR
+   NO SCROLLBAR (OPTIONAL)
 ================================ */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -111,6 +121,17 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+
+/* ===============================
+   MODAL SAFE SCROLL CONTROL
+   (Use only when modal open)
+================================ */
+.modal-open {
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
 
 /* ===============================
    ACCESSIBILITY

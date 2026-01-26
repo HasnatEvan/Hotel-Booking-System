@@ -11,14 +11,23 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className="antialiased bg-white text-gray-900 font-sans">
+    <html lang="en" suppressHydrationWarning>
+      <body className="bg-white text-gray-900 font-sans min-h-screen flex flex-col">
+
+        {/* NAVBAR (native scroll) */}
+        <Navbar />
+
+        {/* MAIN CONTENT (Lenis only here) */}
         <SmoothScroll>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+          <main className="flex-1">
+            {children}
+          </main>
         </SmoothScroll>
 
+        {/* FOOTER */}
+        <Footer />
+
+        {/* TOASTER */}
         <Toaster
           position="top-center"
           reverseOrder={false}
